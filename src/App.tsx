@@ -1,10 +1,13 @@
 import "./App.css";
+import { TonConnectButton } from "@tonconnect/ui-react";
+import { Counter } from "./components/Counter";
 import { Jetton } from "./components/Jetton";
+import { TransferTon } from "./components/TransferTon";
 import styled from "styled-components";
 import { Button, FlexBoxCol, FlexBoxRow } from "./components/styled/styled";
-import { CHAIN, TonConnectButton } from "@tonconnect/ui-react";
 import { useTonConnect } from "./hooks/useTonConnect";
-import "@twa-dev/sdk"
+import { CHAIN } from "@tonconnect/protocol";
+import "@twa-dev/sdk";
 
 const StyledApp = styled.div`
   background-color: #e8e8e8;
@@ -24,14 +27,14 @@ const AppContainer = styled.div`
 `;
 
 function App() {
-  const {network} = useTonConnect()
+  const { network } = useTonConnect();
 
   return (
     <StyledApp>
       <AppContainer>
         <FlexBoxCol>
           <FlexBoxRow>
-            <TonConnectButton/>
+            <TonConnectButton />
             <Button>
               {network
                 ? network === CHAIN.MAINNET
@@ -40,6 +43,8 @@ function App() {
                 : "N/A"}
             </Button>
           </FlexBoxRow>
+          {/* <Counter /> */}
+          {/* <TransferTon /> */}
           <Jetton />
         </FlexBoxCol>
       </AppContainer>
