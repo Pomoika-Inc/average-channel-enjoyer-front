@@ -1,1 +1,1 @@
-export * from '../build/JettonWallet/tact_JettonWallet';
+export * from '../../build/JettonWallet/tact_JettonWallet';
