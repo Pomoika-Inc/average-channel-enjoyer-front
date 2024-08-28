@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Mr-Dm1try.github.io/ton-web-app",
+  "homepage": "https://Pomoika-Inc.github.io/average-channel-enjoyer-front",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
