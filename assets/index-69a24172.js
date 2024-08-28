@@ -1201,4 +1201,4 @@ Values:
 `,CG=Bo.div`
   max-width: 900px;
   margin: 0 auto;
-`;function AG(){const{network:e}=R1();return kn(SG,{children:kn(CG,{children:Ks(AE,{children:[Ks(Bd,{children:[kn(bF,{}),kn(kE,{children:e?e===Il.MAINNET?"mainnet":"testnet":"N/A"})]}),kn(MG,{})]})})})}const kG="https://mr-dm1try.github.io/ton-web-app/tonconnect-manifest.json",EG=new vB({defaultOptions:{queries:{refetchOnWindowFocus:!1}}});Zy.createRoot(document.getElementById("root")).render(kn(mF,{manifestUrl:kG,children:kn(ST,{client:EG,children:kn(AG,{})})}));
+`;function AG(){const{network:e}=R1();return kn(SG,{children:kn(CG,{children:Ks(AE,{children:[Ks(Bd,{children:[kn(bF,{}),kn(kE,{children:e?e===Il.MAINNET?"mainnet":"testnet":"N/A"})]}),kn(MG,{})]})})})}const kG="https://Pomoika-Inc.github.io/average-channel-enjoyer-front/tonconnect-manifest.json",EG=new vB({defaultOptions:{queries:{refetchOnWindowFocus:!1}}});Zy.createRoot(document.getElementById("root")).render(kn(mF,{manifestUrl:kG,children:kn(ST,{client:EG,children:kn(AG,{})})}));
