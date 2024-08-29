@@ -1,20 +1,19 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { TonConnectUIProvider } from "@tonconnect/ui-react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
-import { TonConnectUIProvider } from "@tonconnect/ui-react";
 // this manifest is used temporarily for development purposes
-const manifestUrlT = "https://Pomoika-Inc.github.io/average-channel-enjoyer-front/tonconnect-manifest.json";
-
+const manifestUrl = "https://Pomoika-Inc.github.io/average-channel-enjoyer-front/tonconnect-manifest.json";
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { refetchOnWindowFocus: false } },
 });
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <TonConnectUIProvider manifestUrl={manifestUrlT}>
+  <TonConnectUIProvider manifestUrl={manifestUrl}>
     <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
+      <App />
+    </QueryClientProvider>
   </TonConnectUIProvider>
 );
