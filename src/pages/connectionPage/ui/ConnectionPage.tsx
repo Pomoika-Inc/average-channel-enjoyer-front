@@ -1,21 +1,29 @@
 import {TonConnectButton, useTonAddress} from "@tonconnect/ui-react";
 import "@twa-dev/sdk";
-// import {FlexBoxCol, FlexBoxRow} from "@/components/styled/styled";
 import css from './ConnectionPage.module.css'
-import {useEffect} from "react";
 
 export function ConnectionPage() {
-    // const {network} = useTonConnect();
     const userFriendlyAddress = useTonAddress();
 
-    useEffect(() => {
-        // if (userFriendlyAddress) window.Telegram.WebApp.sendData(userFriendlyAddress)
-    }, [userFriendlyAddress]);
+    const sendWalletAddressHandler = () => {
+        if (userFriendlyAddress) window.Telegram.WebApp.sendData(userFriendlyAddress)
+    }
 
     return (
-        <div className={css.root}>
-            <h1>What to join crypto luxury?</h1>
-            <TonConnectButton/>
-        </div>
+        <>
+            {userFriendlyAddress ?
+                (<div className={css.root}>
+                    <h1>Четко. Вы готовы закупаться!</h1>
+                    <button className={css.startSellButton}
+                            onClick={sendWalletAddressHandler}
+                    >Закуп</button>
+                </div>)
+                :
+                (<div className={css.root}>
+                    <h1>What to join crypto luxury?</h1>
+                    <TonConnectButton/>
+                </div>)
+            }
+        </>
     );
 }
