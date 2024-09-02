@@ -4,3 +4,13 @@
     align-items: center;
     padding: 5rem;
 }
+
+.startSellButton {
+    background-color: cornflowerblue;
+    padding: 0.8rem;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    border: none;
+    border-radius: 5px;
+}
