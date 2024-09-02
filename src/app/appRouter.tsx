@@ -1,12 +1,11 @@
 import {createBrowserRouter} from "react-router-dom";
-import App from "../App";
-
+import {ConnectionPage} from "@/pages/connectionPage";
 
 export const appRouter = createBrowserRouter(
     [
         {
             path: "/",
-            element: <App/>,
+            element: <ConnectionPage/>,
         }
     ],
     {
