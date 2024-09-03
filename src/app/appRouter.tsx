@@ -4,7 +4,7 @@ import {ConnectionPage} from "@/pages/connectionPage";
 export const appRouter = createBrowserRouter(
     [
         {
-            path: "/",
+            path: "/login",
             element: <ConnectionPage/>,
         }
     ],
