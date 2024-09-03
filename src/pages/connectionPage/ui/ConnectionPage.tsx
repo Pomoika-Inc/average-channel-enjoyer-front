@@ -20,7 +20,7 @@ export function ConnectionPage() {
                 </div>)
                 :
                 (<div className={css.root}>
-                    <h1>What to join crypto luxury?</h1>
+                    <h1>Want to join crypto luxury?</h1>
                     <TonConnectButton/>
                 </div>)
             }
