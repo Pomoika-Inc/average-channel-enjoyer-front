@@ -1,14 +1,11 @@
-import {createBrowserRouter} from "react-router-dom";
+import {createHashRouter} from "react-router-dom";
 import {ConnectionPage} from "@/pages/connectionPage";
 
-export const appRouter = createBrowserRouter(
+export const appRouter = createHashRouter(
     [
         {
             path: "/login",
             element: <ConnectionPage/>,
         }
-    ],
-    {
-        basename: "/average-channel-enjoyer-front",
-    }
+    ]
 );
