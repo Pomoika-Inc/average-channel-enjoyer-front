@@ -5,7 +5,7 @@ export const appRouter = createHashRouter(
     [
         {
             path: "/login",
-            element: <ConnectionPage/>,
+            element: <ConnectionPage/>
         }
     ]
 );
