@@ -8,7 +8,10 @@ export function ConnectionPage() {
     const userFriendlyAddress = useTonAddress();
 
     useEffect(() => {
-        if (userFriendlyAddress) window.Telegram.WebApp.sendData(userFriendlyAddress)
+        if (userFriendlyAddress && localStorage.getItem('walletAddress') !== userFriendlyAddress) {
+            window.Telegram.WebApp.sendData(userFriendlyAddress);
+            localStorage.setItem('walletAddress', userFriendlyAddress);
+        }
     }, [userFriendlyAddress]);
 
     return (
