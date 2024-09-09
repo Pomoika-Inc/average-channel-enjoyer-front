@@ -4,8 +4,9 @@ import ReactDOM from "react-dom/client";
 import {RouterProvider} from "react-router-dom";
 import "../index.css";
 import {appRouter} from "./appRouter";
-// this manifest is used temporarily for development purposes
 const manifestUrl = "https://Pomoika-Inc.github.io/average-channel-enjoyer-front/tonconnect-manifest.json";
+import './../index.css';
+
 
 const queryClient = new QueryClient({
     defaultOptions: {queries: {refetchOnWindowFocus: false}},
