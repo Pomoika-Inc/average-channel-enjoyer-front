@@ -1,0 +1,54 @@
+/* Фон (оверлей) */
+.dialogOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: overlayShow 250ms ease-out;
+}
+
+/* Контент сайдбара */
+.dialogContent {
+    position: fixed;
+    top: 0;
+    left: 0; /* Сайдбар выезжает слева */
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    animation: contentShow 200ms ease-out; /* Анимация выезда */
+}
+
+/* Класс для плавного закрытия */
+.closing {
+    animation: contentHide 150ms ease-in forwards; /* Анимация закрытия */
+}
+
+/* Анимация появления фона */
+@keyframes overlayShow {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Анимация выезда сайдбара */
+@keyframes contentShow {
+    0% { transform: translateX(-100%); } /* Выезд слева */
+    100% { transform: translateX(0); }
+}
+
+/* Анимация закрытия сайдбара */
+@keyframes contentHide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); } /* Закрытие влево */
+}
+
+/* Кнопка закрытия */
+.closeButton {
+    align-self: flex-end;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
