@@ -5,10 +5,13 @@ import {useEffect} from "react";
 
 export function ConnectionPage() {
 
-    const userFriendlyAddress = useTonAddress();
+    const userFriendlyAddress = useTonAddress()
 
     useEffect(() => {
-        if (userFriendlyAddress) window.Telegram.WebApp.sendData(userFriendlyAddress)
+        if (userFriendlyAddress && localStorage.getItem('walletAddress') !== userFriendlyAddress) {
+            localStorage.setItem('walletAddress', userFriendlyAddress)
+            window.Telegram.WebApp.sendData(userFriendlyAddress)
+        }
     }, [userFriendlyAddress]);
 
     return (
