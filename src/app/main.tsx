@@ -4,8 +4,12 @@ import ReactDOM from "react-dom/client";
 import {RouterProvider} from "react-router-dom";
 import "../index.css";
 import {appRouter} from "./appRouter";
-// this manifest is used temporarily for development purposes
+import {store} from './appStore';
+import {Provider} from 'react-redux';
+
 const manifestUrl = "https://Pomoika-Inc.github.io/average-channel-enjoyer-front/tonconnect-manifest.json";
+import './../index.css';
+
 
 const queryClient = new QueryClient({
     defaultOptions: {queries: {refetchOnWindowFocus: false}},
@@ -14,7 +18,9 @@ const queryClient = new QueryClient({
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <TonConnectUIProvider manifestUrl={manifestUrl}>
         <QueryClientProvider client={queryClient}>
-            <RouterProvider router={appRouter}/>
+            <Provider store={store}>
+                <RouterProvider router={appRouter}/>
+            </Provider>
         </QueryClientProvider>
     </TonConnectUIProvider>
 );

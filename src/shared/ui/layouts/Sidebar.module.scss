@@ -1,0 +1,49 @@
+@import '@/shared/brand-variables.scss';
+
+.dialogOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: overlayShow 250ms ease-out;
+}
+
+.dialogContent {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background: $brand-color-sky-blue;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    animation: contentShow 200ms ease-out; /* Анимация выезда */
+}
+
+.closing {
+    animation: contentHide 150ms ease-in forwards; /* Анимация закрытия */
+}
+
+@keyframes overlayShow {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes contentShow {
+    0% { transform: translateX(-100%); } /* Выезд слева */
+    100% { transform: translateX(0); }
+}
+
+@keyframes contentHide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); } /* Закрытие влево */
+}
+
+.closeButton {
+    align-self: flex-end;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
