@@ -3,20 +3,14 @@ import {User} from "./userTypes";
 
 interface UserSliceState {
     currentUser: User | null
-    usersList: User[]
-    isLoadingCurrentUser: boolean;
-    isLoadingUsersList: boolean;
-    errorCurrentUser: string | null;
-    errorUsersList: string | null;
+    isLoadingCurrentUser: boolean
+    errorCurrentUser: string | null
 }
 
 const initialState: UserSliceState = {
     currentUser: null,
-    usersList: [],
     isLoadingCurrentUser: false,
-    isLoadingUsersList: false,
-    errorCurrentUser: null,
-    errorUsersList: null,
+    errorCurrentUser: null
 };
 
 export const userSlice = createSlice({
