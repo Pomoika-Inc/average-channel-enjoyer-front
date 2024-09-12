@@ -1,6 +1,6 @@
 import "@twa-dev/sdk";
 
-import CoinWithCounter from "@/entities/coin/ui/CoinWithCounter";
+import CoinWithCounter from "@/shared/ui/coin/CoinWithCounter";
 
 export function HeaderContent() {
 
