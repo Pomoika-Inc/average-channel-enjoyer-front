@@ -5,6 +5,7 @@ export enum UserRole {
     ENJOYER = 'ENJOYER'
 }
 
-export interface user {
+export interface User {
+    name: string,
     role: UserRole
 }
