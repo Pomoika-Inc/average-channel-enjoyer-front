@@ -1,18 +1,18 @@
-
 import "@twa-dev/sdk";
 import css from './ChannelPage.module.css'
-import {useEffect} from "react";
+import React, {useEffect} from "react";
+import Layout from "@/shared/ui/layouts/Layout";
+import {HeaderContent} from "./HeaderContent";
 
 export function ChannelPage() {
 
     useEffect(() => {
-
     }, []);
 
     return (
-        <div className={css.root}>
-            <h1>Want to join crypto luxury?</h1>
-
-        </div>
+        <>
+            <Layout headerContent={<HeaderContent/>}/>
+            <div className={css.root}></div>
+        </>
     );
 }
