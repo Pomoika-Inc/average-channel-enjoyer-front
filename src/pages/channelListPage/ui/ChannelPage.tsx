@@ -1,6 +1,6 @@
 import "@twa-dev/sdk";
-import css from './ChannelPage.module.css'
-import React, {useEffect, useState} from "react";
+import css from './ChannelListPage.module.css'
+import React, {useEffect} from "react";
 import Layout from "@/shared/ui/layouts/Layout";
 import {HeaderContent} from "./HeaderContent";
 import {ProductCard} from "@/entities/product";
