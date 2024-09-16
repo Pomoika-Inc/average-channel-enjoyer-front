@@ -6,12 +6,14 @@ import {UserRole} from "@/entities/user/model/userTypes";
 import {Link} from "react-router-dom";
 import {RootState} from "@/app/appStore";
 import {useSelector} from "react-redux";
+import Accordion from "@/shared/ui/accordions/Accordion";
+import combine from "classnames";
 
 interface SidebarProps {
     children?: ReactNode,
 }
 
-const userRole: UserRole = UserRole.USER;
+const userRole: UserRole = UserRole.ADMIN;
 
 
 const Sidebar: React.FC<SidebarProps> = ({children}) => {
@@ -45,31 +47,38 @@ const Sidebar: React.FC<SidebarProps> = ({children}) => {
 
             {isOpen && (
                 <Dialog.Content className={`${css.dialogContent} ${isClosing ? css.closing : ''}`}>
-
-                    {userRole === UserRole.USER && (
-                        <div className="flex flex-col align-items-center h-full">
-                            <div className="flex justify-between">
-                                <span>{user && user.name}</span>
-                                <Dialog.Close className={`${css.closeButton}`} onClick={handleClose}>✕</Dialog.Close>
-                            </div>
-                            <div className="flex flex-col justify-center text-center gap-7 mt-24 text-xl">
-                                <Link to="/login">Channels</Link>
-                                <Link to="/login">Orders</Link>
-                                <Link to="/login">hz cheto</Link>
-                            </div>
+                    <div className="flex flex-col align-items-center">
+                        <div className="flex justify-between">
+                            <span>{user && user.name}</span>
+                            <Dialog.Close className={`${css.closeButton}`} onClick={handleClose}>✕</Dialog.Close>
                         </div>
-                    )}
+                        <div className="flex flex-col justify-center text-center gap-5 mt-24 text-xl">
+                            <Link to="/login">Channels</Link>
+                            <Link to="/login">Orders</Link>
+                        </div>
+                    </div>
+
 
                     {/*{userRole === UserRole.ADMIN && (*/}
-                    {/*    <div>*/}
-
-                    {/*    </div>*/}
+                        <Accordion parentClassName="mt-6" triggerContent={<span className={combine(css.subLinks,'text-xl')}>Administration</span>}
+                            accordionContent={
+                                <div className="flex flex-col justify-center text-center gap-5 text-xl">
+                                    <Link to="/login">Channels</Link>
+                                    <Link to="/login">Orders</Link>
+                                </div>
+                            }
+                        />
                     {/*)}*/}
 
                     {/*{userRole === UserRole.ENJOYER && (*/}
-                    {/*    <div>*/}
-                    {/*        admin side bar*/}
-                    {/*    </div>*/}
+                        <Accordion parentClassName="mt-6" triggerContent={<span className={combine(css.subLinks,'text-xl')}>Development</span>}
+                                   accordionContent={
+                                       <div className="flex flex-col justify-center text-center gap-5 text-xl">
+                                           <Link to="/login">Channels</Link>
+                                           <Link to="/login">Orders</Link>
+                                       </div>
+                                   }
+                        />
                     {/*)}*/}
 
                 </Dialog.Content>
