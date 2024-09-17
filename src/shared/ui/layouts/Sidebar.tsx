@@ -63,8 +63,10 @@ const Sidebar: React.FC<SidebarProps> = ({children}) => {
                         <Accordion parentClassName="mt-6" triggerContent={<span className={combine(css.subLinks,'text-xl')}>Administration</span>}
                             accordionContent={
                                 <div className="flex flex-col justify-center text-center gap-5 text-xl">
-                                    <Link to="/login">Channels</Link>
-                                    <Link to="/login">Orders</Link>
+                                    <Link to="/administration/products">Products</Link>
+                                    <Link to="/administration/product/create">Create product</Link>
+
+                                    {/*<Link to="/login">Orders</Link>*/}
                                 </div>
                             }
                         />

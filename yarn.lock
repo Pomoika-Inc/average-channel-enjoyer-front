@@ -262,6 +262,11 @@
   "resolved" "https://registry.npmjs.org/@floating-ui/utils/-/utils-0.2.7.tgz"
   "version" "0.2.7"
 
+"@hookform/resolvers@^3.9.0":
+  "integrity" "sha512-bU0Gr4EepJ/EQsH/IwEzYLsT/PEj5C0ynLQ4m+GSHS+xKH4TfSelhluTgOaoc4kA5s7eCsQbM4wvZLzELmWzUg=="
+  "resolved" "https://registry.npmjs.org/@hookform/resolvers/-/resolvers-3.9.0.tgz"
+  "version" "3.9.0"
+
 "@isaacs/cliui@^8.0.2":
   "integrity" "sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA=="
   "resolved" "https://registry.npmjs.org/@isaacs/cliui/-/cliui-8.0.2.tgz"
@@ -591,7 +596,7 @@
   dependencies:
     "@radix-ui/react-use-layout-effect" "1.1.0"
 
-"@radix-ui/react-label@2.1.0":
+"@radix-ui/react-label@^2.1.0", "@radix-ui/react-label@2.1.0":
   "integrity" "sha512-peLblDlFw/ngk3UWq0VnYaOLy6agTZZ+MUO/WhVfm14vJGML+xH4FAl2XQGLqdefjNb7ApRg6Yn7U42ZhmYXdw=="
   "resolved" "https://registry.npmjs.org/@radix-ui/react-label/-/react-label-2.1.0.tgz"
   "version" "2.1.0"
@@ -642,7 +647,7 @@
     "@radix-ui/react-use-previous" "1.1.0"
     "@radix-ui/react-visually-hidden" "1.1.0"
 
-"@radix-ui/react-popover@1.1.1":
+"@radix-ui/react-popover@^1.1.1", "@radix-ui/react-popover@1.1.1":
   "integrity" "sha512-3y1A3isulwnWhvTTwmIreiB8CF4L+qRjZnK1wYLO7pplddzXKby/GnZ2M7OZY3qgnl6p9AodUIHRYGXNah8Y7g=="
   "resolved" "https://registry.npmjs.org/@radix-ui/react-popover/-/react-popover-1.1.1.tgz"
   "version" "1.1.1"
@@ -2882,6 +2887,11 @@
     "loose-envify" "^1.1.0"
     "scheduler" "^0.23.0"
 
+"react-hook-form@^7.0.0", "react-hook-form@^7.53.0":
+  "integrity" "sha512-M1n3HhqCww6S2hxLxciEXy2oISPnAzxY7gvwVPrtlczTM/1dDadXgUxDpHMrMTblDOcm/AXtXxHwZ3jpg1mqKQ=="
+  "resolved" "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.53.0.tgz"
+  "version" "7.53.0"
+
 "react-is@^16.7.0":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
@@ -2948,7 +2958,7 @@
     "invariant" "^2.2.4"
     "tslib" "^2.0.0"
 
-"react@^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18", "react@^16.x || ^17.x || ^18.x", "react@^18.0", "react@^18.2.0", "react@^18.3.1", "react@>= 16.8.0", "react@>=16.0.0", "react@>=16.8", "react@>=16.8.0", "react@>=16.8.1", "react@>=17.0.0", "react@16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc":
+"react@^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc", "react@^16.8.0 || ^17 || ^18 || ^19", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18", "react@^16.x || ^17.x || ^18.x", "react@^18.0", "react@^18.2.0", "react@^18.3.1", "react@>= 16.8.0", "react@>=16.0.0", "react@>=16.8", "react@>=16.8.0", "react@>=16.8.1", "react@>=17.0.0", "react@16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc":
   "integrity" "sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.3.1.tgz"
   "version" "18.3.1"
@@ -3530,7 +3540,7 @@
   "resolved" "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   "version" "0.1.0"
 
-"zod@^3.21.4":
+"zod@^3.21.4", "zod@^3.23.8":
   "integrity" "sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g=="
   "resolved" "https://registry.npmjs.org/zod/-/zod-3.23.8.tgz"
   "version" "3.23.8"
