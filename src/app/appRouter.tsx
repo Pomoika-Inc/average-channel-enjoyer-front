@@ -1,6 +1,9 @@
 import {createHashRouter} from "react-router-dom";
 import {ConnectionPage} from "@/pages/connectionPage";
 import {ChannelPage} from "@/pages/channelPage";
+import {ChannelListPage} from "@/pages/channelListPage";
+import {ProductsAdministrationPage} from "@/pages/productsAdministrationPage";
+import {CreateProductPage} from "@/pages/createProductPage";
 
 export const appRouter = createHashRouter(
     [
@@ -11,7 +14,21 @@ export const appRouter = createHashRouter(
         {
             path: 'channels/:id',
             element: <ChannelPage />
-        }
+        },
+        {
+            path: 'channels',
+            element: <ChannelListPage />
+        },
+
+        {
+            path: 'administration/products',
+            element: <ProductsAdministrationPage />
+        },
+        {
+            path: 'administration/products/create',
+            element: <CreateProductPage />
+        },
+
 
         // {
         //     path: '/',
@@ -19,7 +36,7 @@ export const appRouter = createHashRouter(
         //     children: [
         //         {
         //             path: 'channels/:id',
-        //             element: <ChannelPage />
+        //             element: <CreateProductPage />
         //         }
         //     ]
         // }
