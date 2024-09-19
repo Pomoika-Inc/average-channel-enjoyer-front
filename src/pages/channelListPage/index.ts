@@ -1,1 +1,1 @@
-export { ChannelPage } from './ui/ChannelPage'
+export { ChannelListPage } from './ui/ChannelListPage'
