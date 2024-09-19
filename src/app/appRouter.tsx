@@ -3,7 +3,6 @@ import {ConnectionPage} from "@/pages/connectionPage";
 import {ChannelPage} from "@/pages/channelPage";
 import {ChannelListPage} from "@/pages/channelListPage";
 import {ProductsAdministrationPage} from "@/pages/productsAdministrationPage";
-import {CreateProductPage} from "@/pages/createProductPage";
 
 export const appRouter = createHashRouter(
     [
@@ -12,33 +11,26 @@ export const appRouter = createHashRouter(
             element: <ConnectionPage />
         },
         {
-            path: 'channels/:id',
-            element: <ChannelPage />
-        },
-        {
             path: 'channels',
-            element: <ChannelListPage />
+            children: [
+                {
+                    path: ':id',
+                    element: <ChannelPage />
+                },
+                {
+                    path: '',
+                    element: <ChannelListPage />
+                }
+            ]
         },
-
         {
-            path: 'administration/products',
-            element: <ProductsAdministrationPage />
-        },
-        {
-            path: 'administration/products/create',
-            element: <CreateProductPage />
-        },
-
-
-        // {
-        //     path: '/',
-        //     element: <UserLayout />,
-        //     children: [
-        //         {
-        //             path: 'channels/:id',
-        //             element: <CreateProductPage />
-        //         }
-        //     ]
-        // }
+            path: 'administration',
+            children: [
+                {
+                    path: 'products',
+                    element: <ProductsAdministrationPage />
+                }
+            ]
+        }
     ]
-)
+);
