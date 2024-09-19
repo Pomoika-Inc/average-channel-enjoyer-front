@@ -48,13 +48,14 @@ const Sidebar: React.FC<SidebarProps> = ({children}) => {
             {isOpen && (
                 <Dialog.Content className={`${css.dialogContent} ${isClosing ? css.closing : ''}`}>
                     <div className="flex flex-col align-items-center">
+                        <Dialog.Title></Dialog.Title>
                         <div className="flex justify-between">
                             <span>{user && user.name}</span>
                             <Dialog.Close className={`${css.closeButton}`} onClick={handleClose}>✕</Dialog.Close>
                         </div>
                         <div className="flex flex-col justify-center text-center gap-5 mt-24 text-xl">
-                            <Link to="/login">Channels</Link>
-                            <Link to="/login">Orders</Link>
+                            <Link to="/channels">Channels</Link>
+                            {/*<Link to="/login">Orders</Link>*/}
                         </div>
                     </div>
 
@@ -64,7 +65,7 @@ const Sidebar: React.FC<SidebarProps> = ({children}) => {
                             accordionContent={
                                 <div className="flex flex-col justify-center text-center gap-5 text-xl">
                                     <Link to="/administration/products">Products</Link>
-                                    <Link to="/administration/product/create">Create product</Link>
+                                    <Link to="/administration/products/create">Create product</Link>
 
                                     {/*<Link to="/login">Orders</Link>*/}
                                 </div>
