@@ -932,16 +932,15 @@
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
 
-"@tanstack/query-core@4.24.4":
-  version "4.24.4"
-  resolved "https://registry.npmjs.org/@tanstack/query-core/-/query-core-4.24.4.tgz"
+"@tanstack/query-core@5.56.2":
+  version "5.56.2"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.56.2.tgz#2def2fb0290cd2836bbb08afb0c175595bb8109b"
 
-"@tanstack/react-query@^4.24.4":
-  version "4.24.4"
-  resolved "https://registry.npmjs.org/@tanstack/react-query/-/react-query-4.24.4.tgz"
+"@tanstack/react-query@^5.56.2":
+  version "5.56.2"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-5.56.2.tgz#3a0241b9d010910905382f5e99160997b8795f91"
   dependencies:
-    "@tanstack/query-core" "4.24.4"
-    use-sync-external-store "^1.2.0"
+    "@tanstack/query-core" "5.56.2"
 
 "@ton/core@^0.56.3":
   version "0.56.3"
@@ -2974,7 +2973,7 @@ use-sidecar@^1.1.2:
     detect-node-es "^1.1.0"
     tslib "^2.0.0"
 
-use-sync-external-store@^1.0.0, use-sync-external-store@^1.2.0:
+use-sync-external-store@^1.0.0:
   version "1.2.0"
   resolved "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz"
 
