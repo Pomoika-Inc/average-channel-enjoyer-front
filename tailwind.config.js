@@ -1,7 +1,6 @@
-// tailwind.config.js
 module.exports = {
     content: [
-        "./src/**/*.{js,jsx,ts,tsx}", // Убедитесь, что путь указан правильно
+        "./src/**/*.{js,jsx,ts,tsx}",
         "./public/index.html"
     ],
     theme: {
