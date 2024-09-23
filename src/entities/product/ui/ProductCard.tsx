@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {ReactNode, useState} from 'react';
 import css from "./Product.module.scss";
 import {Product} from "@/entities/product/model/productTypes";
 import {Tag} from "@/shared/ui/tags/Tag";
@@ -6,10 +6,12 @@ import CoinWithCounter from "@/shared/ui/coin/CoinWithCounter";
 import Accordion from "@/shared/ui/accordions/Accordion";
 
 interface ProductCardProps {
-    product: Product
+    product: Product,
+    actionContent?: ReactNode,
+    additionalContent?: Boolean
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({product}) => {
+export const ProductCard: React.FC<ProductCardProps> = ({product, actionContent, additionalContent}) => {
     return (
         <div className="gap-4 items-center border rounded-lg shadow-lg py-3 px-2">
             <div className="grid grid-cols-12 ">
@@ -32,6 +34,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({product}) => {
                         <span className="text-white">NEW!</span>
                     </Tag>
                     <CoinWithCounter counter={product.price}/>
+                    {actionContent}
                 </div>
             </div>
             <Accordion triggerContent={<span>Read more?</span>} accordionContent={
@@ -46,6 +49,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({product}) => {
                     All Rights Reser.
                 </p>
             }/>
+
+            <div className="mt-3">
+                {additionalContent && (
+                    <div className="px-4">
+                        <p className="text-xl">Status: <span className="text-green-600">{product.status}</span></p>
+                        {product.rejectReason && <span>Reject reason: {product.rejectReason}</span>}
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
