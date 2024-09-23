@@ -22,6 +22,7 @@ const initialState: ProductSliceState = {
             groupId: 6789,
             title: "Product 1",
             price: 23,
+            qty: 1,
             description: "This is the best product you have even seen",
             image: "/images/channelAva1.png",
             status: "active",
