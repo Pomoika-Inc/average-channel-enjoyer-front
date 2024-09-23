@@ -23,17 +23,17 @@ export function useCounterContract() {
     return client.open(contract) as OpenedContract<Counter>;
   }, [client]);
 
-  const { data, isFetching } = useQuery(
-    ["counter"],
-    async () => {
-      if (!counterContract) return null;
-      return (await counterContract!.getCounter()).toString();
-    },
-    { refetchInterval: 3000 }
-  );
+  // const { data, isFetching } = useQuery(
+  //   ["counter"],
+  //   async () => {
+  //     if (!counterContract) return null;
+  //     return (await counterContract!.getCounter()).toString();
+  //   },
+  //   { refetchInterval: 3000 }
+  // );
 
   return {
-    value: isFetching ? null : data,
+    // value: isFetching ? null : data,
     address: counterContract?.address.toString(),
     sendIncrement: () => {
       return counterContract?.sendIncrement(sender);

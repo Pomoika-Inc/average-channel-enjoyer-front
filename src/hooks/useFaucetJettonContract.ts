@@ -28,21 +28,21 @@ export function useFaucetJettonContract() {
     ) as OpenedContract<FaucetJettonWallet>;
   }, [faucetJettonContract, client]);
 
-  const { data, isFetching } = useQuery(
-    ["jetton"],
-    async () => {
-      if (!jwContract) return null;
+  // const { data, isFetching } = useQuery(
+  //   ["jetton"],
+  //   async () => {
+  //     if (!jwContract) return null;
 
-      return (await jwContract.getBalance()).toString();
-    },
-    { refetchInterval: 3000 }
-  );
+  //     return (await jwContract.getBalance()).toString();
+  //   },
+  //   { refetchInterval: 3000 }
+  // );
 
   return {
     mint: () => {
       faucetJettonContract?.sendMintFromFaucet(sender, Address.parse(wallet!));
     },
     jettonWalletAddress: jwContract?.address.toString(),
-    balance: isFetching ? null : data,
+    // balance: isFetching ? null : data,
   };
 }
