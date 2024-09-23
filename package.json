@@ -22,7 +22,7 @@
     "@ton/crypto": "^3.2.0",
     "@ton/ton": "^13.11.2",
     "@tonconnect/ui-react": "^2.0.6",
-    "@twa-dev/sdk": "^7.0.0",
+    "@twa-dev/sdk": "^7.10.1",
     "buffer": "^6.0.3",
     "gh-pages": "^6.1.1",
     "is-mobile": "^4.0.0",
