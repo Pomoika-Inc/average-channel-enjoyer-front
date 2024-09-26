@@ -8,10 +8,15 @@ import Popover from "@/shared/ui/popover/Popover";
 import {ChannelCard} from "@/entities/channel";
 import {Link} from "react-router-dom";
 import {Product, ProductActionType} from "@/entities/product/model/productTypes";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "@/app/appStore";
 import {ProductForm} from "@/features/product/ui/CreateProductForm";
 import Accordion from "@/shared/ui/accordions/Accordion";
+import {removeProduct} from "@/entities/product/model/productSlice";
+import Modal from "@/shared/ui/modal/Modal";
+import {RemoveModal} from "@/pages/productsAdministrationPage/ui/RemoveModal";
+import {Filter} from "@/shared/ui/filter/Filter";
+import {Search} from "@/shared/ui/search/Search";
 
 export function ProductsAdministrationPage() {
 
@@ -20,15 +25,21 @@ export function ProductsAdministrationPage() {
     const [actionType, setActionType] = useState<ProductActionType>("creating")
     const [isTipBlockOpen, setTipBlockOpen] = useState<Boolean>(true)
     const products = useSelector((state: RootState) => state.product.products)
+    const [filteredProducts, setFilteredProducts] = useState<Product[]>(products)
+    const [searchedProducts, setSearchedProducts] = useState<Product[]>(filteredProducts)
+
+
     // const [isFormOpenByClick, setFormOpenByClick] = useState(false);
 
-    useEffect(()=>{
+    const dispatch = useDispatch();
+
+    useEffect(() => {
         setTipBlockOpen(true)
-    },[isFormOpenProgrammatically])
+    }, [isFormOpenProgrammatically])
 
     const copyProductHandler = (product: Product) => {
         setSelectedProduct(product)
-        if(actionType !== "creating") setActionType('creating')
+        if (actionType !== "creating") setActionType('creating')
         setFormOpenProgrammatically(true)
 
         window.scrollTo({
@@ -39,7 +50,7 @@ export function ProductsAdministrationPage() {
 
     const updateProductHandler = (product: Product) => {
         setSelectedProduct(product)
-        if(actionType !== "updating") setActionType('updating')
+        if (actionType !== "updating") setActionType('updating')
         setFormOpenProgrammatically(true)
         window.scrollTo({
             top: 0,
@@ -48,14 +59,10 @@ export function ProductsAdministrationPage() {
     }
 
     const formOpenByClickHandler = (isOpen: boolean) => {
-        setTimeout(()=>{
+        setTimeout(() => {
             setFormOpenProgrammatically(isOpen)
-        },100)
+        }, 100)
     };
-
-    const removeProductHandler = (id: number) => {
-        //open modal
-    }
 
     return (
         <>
@@ -75,23 +82,27 @@ export function ProductsAdministrationPage() {
                            accordionContent={
                                <>
                                    {isTipBlockOpen && actionType === "updating" && (
-                                       <div className="flex flex-col items-center mx-1 px-6 py-4 text-amber-600 border-2 border-amber-600 border-solid rounded-2xl">
+                                       <div
+                                           className="flex flex-col items-center mx-1 px-6 py-4 text-amber-600 border-2 border-amber-600 border-solid rounded-2xl">
                                            <p>
                                                <span>At the moment it's not possible to update products directly. </span>
                                                <span>It will create a new product based on the base one. The old one will be remove. Some data will ve migrated. </span>
                                            </p>
-                                           <button onClick={() => setTipBlockOpen(false)} className="mt-3 p-2 text-white bg-amber-600 rounded-2xl">
+                                           <button onClick={() => setTipBlockOpen(false)}
+                                                   className="mt-3 p-2 text-white bg-amber-600 rounded-2xl">
                                                I understand
                                            </button>
                                        </div>
                                    )}
 
                                    {isTipBlockOpen && actionType === "creating" && (
-                                       <div className="flex flex-col items-center mx-1 px-6 py-4 text-green-700 border-2 border-green-700 border-solid rounded-2xl">
+                                       <div
+                                           className="flex flex-col items-center mx-1 px-6 py-4 text-green-700 border-2 border-green-700 border-solid rounded-2xl">
                                            <p>
                                                <span>It will create a new product. There are no relation to any products.</span>
                                            </p>
-                                           <button onClick={() => setTipBlockOpen(false)} className="mt-3 p-2 text-white bg-green-700 rounded-2xl">
+                                           <button onClick={() => setTipBlockOpen(false)}
+                                                   className="mt-3 p-2 text-white bg-green-700 rounded-2xl">
                                                I understand
                                            </button>
                                        </div>
@@ -106,14 +117,29 @@ export function ProductsAdministrationPage() {
                            }
                 />
 
-                <ul className="flex flex-col w-full p-3 gap-2 mt-4">
-                    {products.map((product) => (
+
+                <div className="flex justify-between items-center w-full gap-3 mt-6 px-4">
+                        {/*<p className="py-1">Filter</p>*/}
+                        <Search listToSearchIn={filteredProducts}
+                                propertyNameToSearchBy="title"
+                                onSearchedChange={setSearchedProducts}/>
+                        <Filter filterOptions={[{name: 'active', value: 'active'}, {
+                            name: 'rejected',
+                            value: 'rejected'
+                        }, {name: 'waiting for approval', value: 'waiting_for_approval'}]}
+                                listToFilter={products}
+                                onFilterChange={setFilteredProducts}
+                                propertyNameToFilterBy="status"
+                        />
+                </div>
+
+                <ul className="flex flex-col w-full p-3 gap-2 mt-3">
+                    {searchedProducts.map((product) => (
                         <li key={product.id}>
                             <ProductCard additionalContent product={product} actionContent={
                                 <div className="flex flex-col py-3 gap-2">
-                                    <button onClick={() => removeProductHandler(product.id)}
-                                            className="bg-amber-400 p-2 rounded-2xl">Remove
-                                    </button>
+
+                                    <RemoveModal product={product}/>
                                     <button onClick={() => copyProductHandler(product)}
                                             className="bg-indigo-600 p-2 rounded-2xl">
                                         Copy
