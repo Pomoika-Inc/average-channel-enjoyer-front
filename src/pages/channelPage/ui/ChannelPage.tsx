@@ -6,6 +6,8 @@ import {HeaderContent} from "./HeaderContent";
 import {ProductCard} from "@/entities/product";
 import {useSelector} from "react-redux";
 import {RootState} from "@/app/appStore";
+import {Product} from "@/entities/product/model/productTypes";
+import {Search} from "@/shared/ui/search/Search";
 
 export function ChannelPage() {
 
@@ -13,13 +15,20 @@ export function ChannelPage() {
     }, []);
 
     const products = useSelector((state: RootState) => state.product.products)
-
+    const [searchedProducts, setSearchedProducts] = useState<Product[]>(products)
     return (
         <>
             <Layout headerContent={<HeaderContent/>}/>
+
+            <Search listToSearchIn={products}
+                    propertyNameToSearchBy="title"
+                    onSearchedChange={setSearchedProducts}
+                    parentClassName="my-4 px-4"
+            />
+
             <div className="flex flex-col items-center">
                 <ul className="flex flex-col w-full p-3 gap-2">
-                    {products.map((product) => (
+                    {searchedProducts.map((product) => (
                         <li key={product.id}>
                             <ProductCard product={product} showTag actionContent={
                                 <div>
