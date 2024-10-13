@@ -1,0 +1,1 @@
+export { RejectProduct } from './ui/RejectProduct'

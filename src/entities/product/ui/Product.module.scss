@@ -5,3 +5,14 @@
   border-radius: 0.5rem;
   padding: 0.4rem;
 }
+.product-status {
+  &-active{
+    color: $brand-color-success;
+  }
+  &-waiting_for_approval{
+    color: $brand-color-pending;
+  }
+  &-rejected{
+    color: $brand-color-fail;
+  }
+}

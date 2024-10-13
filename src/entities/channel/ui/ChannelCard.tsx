@@ -1,12 +1,13 @@
-import React from 'react';
-import css from "./Channel.module.scss";
+import React, {ReactNode} from 'react';
 import {Tag} from "@/shared/ui/tags/Tag";
 import {Channel} from "@/entities/channel/model/channelTypes";
 
 interface ChannelCardProps {
-    channel: Channel}
+    channel: Channel,
+    actionSlot?: ReactNode
+}
 
-export const ChannelCard: React.FC<ChannelCardProps> = ({channel}) => {
+export const ChannelCard: React.FC<ChannelCardProps> = ({channel, actionSlot}) => {
     return (
         <div className="gap-4 items-center border rounded-lg shadow-lg py-3 px-2">
             <div className="grid grid-cols-12 ">
@@ -14,10 +15,9 @@ export const ChannelCard: React.FC<ChannelCardProps> = ({channel}) => {
                     <img src={channel.image} alt="image"/>
                 </div>
 
-                <div className="col-span-6 flex flex-col justify-center h-full px-3">
-                    <div className="flex justify-between items-center">
+                <div className="col-span-6 flex flex-col h-full px-3">
                         <h2 className="text-xl font-semibold">{channel.title}</h2>
-                    </div>
+                        {actionSlot}
                 </div>
 
                 <div className="col-span-3 flex flex-col justify-between items-end h-full">

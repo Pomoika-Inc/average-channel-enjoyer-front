@@ -1,25 +1,39 @@
 import {createHashRouter} from "react-router-dom";
 import {ConnectionPage} from "@/pages/connectionPage";
-import {ChannelPage} from "@/pages/channelPage";
-import {ChannelListPage} from "@/pages/channelListPage";
-import {ProductsAdministrationPage} from "@/pages/productsAdministrationPage";
+import {ChannelPage} from "@/pages/user/channelPage";
+import {ChannelListPage} from "@/pages/user/channelListPage";
+import {ProductsAdministrationPage} from "@/pages/administration/productsAdministrationPage";
+import {OrderListPage} from "@/pages/user/orderListPage";
+import {OrdersAdministrationPage} from "@/pages/administration/orderAdministrationPage/ui/OrdersAdministrationPage";
+import {ChannelsManagementPage} from "@/pages/management/channelsManagementPage/ui/ChannelsManagementPage";
+import {ChannelProductsManagementPage} from "@/pages/management/channelProductsManagementPage/ui/ChannelProductsManagementPage";
+import {ChannelOrdersManagementPage} from "@/pages/management/channelOrdersManagementPage";
 
 export const appRouter = createHashRouter(
     [
         {
             path: 'login',
-            element: <ConnectionPage />
+            element: <ConnectionPage/>
         },
         {
             path: 'channels',
             children: [
                 {
                     path: ':id',
-                    element: <ChannelPage />
+                    element: <ChannelPage/>
                 },
                 {
                     path: '',
-                    element: <ChannelListPage />
+                    element: <ChannelListPage/>
+                }
+            ]
+        },
+        {
+            path: 'orders',
+            children: [
+                {
+                    path: '',
+                    element: <OrderListPage/>
                 }
             ]
         },
@@ -28,7 +42,33 @@ export const appRouter = createHashRouter(
             children: [
                 {
                     path: 'products',
-                    element: <ProductsAdministrationPage />
+                    element: <ProductsAdministrationPage/>
+                },
+                {
+                    path: 'orders',
+                    element: <OrdersAdministrationPage/>
+                }
+            ]
+        },
+        {
+            path: 'management',
+            children: [
+                {
+                    path: 'channels',
+                    children: [
+                        {
+                            path: '',
+                            element: <ChannelsManagementPage/>
+                        },
+                        {
+                            path: ':id/products',
+                            element: <ChannelProductsManagementPage/>
+                        },
+                        {
+                            path: ':id/orders',
+                            element: <ChannelOrdersManagementPage/>
+                        }
+                    ]
                 }
             ]
         }
