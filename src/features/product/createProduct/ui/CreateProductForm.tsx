@@ -5,7 +5,7 @@ import {zodResolver} from '@hookform/resolvers/zod';
 import styles from './FormStyles.module.scss';
 import combine from "classnames";
 import {Product, ProductActionType} from "@/entities/product/model/productTypes";
-import {productFormSchema} from "@/features/product/productFormSchema";
+import {productFormSchema} from "@/features/product/createProduct/productFormSchema";
 
 interface ProductFormProp {
     defaultActionType: ProductActionType,
