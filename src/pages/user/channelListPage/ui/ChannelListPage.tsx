@@ -1,5 +1,3 @@
-import "@twa-dev/sdk";
-import css from './ChannelListPage.module.css'
 import React from "react";
 import Layout from "@/shared/ui/layouts/Layout";
 import {HeaderContent} from "./HeaderContent";

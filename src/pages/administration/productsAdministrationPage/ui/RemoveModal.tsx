@@ -1,12 +1,10 @@
 import "@twa-dev/sdk";
-import css from './ProductsAdministrationPage.module.css'
-import React, {ReactNode, useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import React from "react";
+import {useDispatch} from "react-redux";
 import {removeProduct} from "@/entities/product/model/productSlice";
 import Modal from "@/shared/ui/modal/Modal";
 import {Product} from "@/entities/product/model/productTypes";
 import * as Dialog from "@radix-ui/react-dialog";
-import styles from "@/shared/ui/modal/modal.module.scss";
 
 interface RemoveModalProp {
     product: Product

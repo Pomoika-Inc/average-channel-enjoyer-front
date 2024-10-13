@@ -4,17 +4,12 @@ import React, {useEffect, useState} from "react";
 import Layout from "@/shared/ui/layouts/Layout";
 import {HeaderContent} from "./HeaderContent";
 import {ProductCard} from "@/entities/product";
-import Popover from "@/shared/ui/popover/Popover";
-import {ChannelCard} from "@/entities/channel";
-import {Link} from "react-router-dom";
 import {Product, ProductActionType} from "@/entities/product/model/productTypes";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {RootState} from "@/app/appStore";
-import {ProductForm} from "@/features/product/ui/CreateProductForm";
+import {ProductForm} from "@/features/product/createProduct/ui/CreateProductForm";
 import Accordion from "@/shared/ui/accordions/Accordion";
-import {removeProduct} from "@/entities/product/model/productSlice";
-import Modal from "@/shared/ui/modal/Modal";
-import {RemoveModal} from "@/pages/productsAdministrationPage/ui/RemoveModal";
+import {RemoveModal} from "@/pages/administration/productsAdministrationPage/ui/RemoveModal";
 import {Filter} from "@/shared/ui/filter/Filter";
 import {Search} from "@/shared/ui/search/Search";
 
@@ -27,11 +22,6 @@ export function ProductsAdministrationPage() {
     const products = useSelector((state: RootState) => state.product.products)
     const [filteredProducts, setFilteredProducts] = useState<Product[]>(products)
     const [searchedProducts, setSearchedProducts] = useState<Product[]>(filteredProducts)
-
-
-    // const [isFormOpenByClick, setFormOpenByClick] = useState(false);
-
-    const dispatch = useDispatch();
 
     useEffect(() => {
         setTipBlockOpen(true)
@@ -63,6 +53,10 @@ export function ProductsAdministrationPage() {
             setFormOpenProgrammatically(isOpen)
         }, 100)
     };
+
+    const filterRule = (element: { status: "string"}, selectedOption: "string") => {
+        return element.status === selectedOption;
+    }
 
     return (
         <>
@@ -119,24 +113,24 @@ export function ProductsAdministrationPage() {
 
 
                 <div className="flex justify-between items-center w-full gap-3 mt-6 px-4">
-                        {/*<p className="py-1">Filter</p>*/}
                         <Search listToSearchIn={filteredProducts}
                                 propertyNameToSearchBy="title"
                                 onSearchedChange={setSearchedProducts}/>
-                        <Filter filterOptions={[{name: 'active', value: 'active'}, {
-                            name: 'rejected',
-                            value: 'rejected'
-                        }, {name: 'waiting for approval', value: 'waiting_for_approval'}]}
-                                listToFilter={products}
-                                onFilterChange={setFilteredProducts}
-                                propertyNameToFilterBy="status"
+                        <Filter filterOptions={[
+                            {name: 'active', value: 'active'},
+                            {name: 'rejected', value: 'rejected'},
+                            {name: 'waiting for approval', value: 'waiting_for_approval'}]
+                        }
+                        listToFilter={products}
+                        onFilterChange={setFilteredProducts}
+                        filterRule={filterRule}
                         />
                 </div>
 
                 <ul className="flex flex-col w-full p-3 gap-2 mt-3">
                     {searchedProducts.map((product) => (
                         <li key={product.id}>
-                            <ProductCard additionalContent product={product} actionContent={
+                            <ProductCard product={product} actionContent={
                                 <div className="flex flex-col py-3 gap-2">
 
                                     <RemoveModal product={product}/>
@@ -149,7 +143,17 @@ export function ProductsAdministrationPage() {
                                         update
                                     </button>
                                 </div>
-                            }/>
+                            }
+                            additionalContent={
+                                <div className="px-4">
+                                    <p className="text-xl">Status:
+                                        <span className={css[`product-status-${product.status}`]}>
+                                            {product.status}
+                                         </span></p>
+                                    {product.rejectReason && <span>Reject reason: {product.rejectReason}</span>}
+                                </div>
+                            }
+                            />
                         </li>
                     ))}
                 </ul>
