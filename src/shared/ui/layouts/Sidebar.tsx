@@ -55,7 +55,7 @@ const Sidebar: React.FC<SidebarProps> = ({children}) => {
                         </div>
                         <div className="flex flex-col justify-center text-center gap-5 mt-24 text-xl">
                             <Link to="/channels">Channels</Link>
-                            {/*<Link to="/login">Orders</Link>*/}
+                            <Link to="/orders">Orders</Link>
                         </div>
                     </div>
 
@@ -65,7 +65,7 @@ const Sidebar: React.FC<SidebarProps> = ({children}) => {
                             accordionContent={
                                 <div className="flex flex-col justify-center text-center gap-5 text-xl">
                                     <Link to="/administration/products">Products</Link>
-                                    <Link to="/administration/products/create">Create product</Link>
+                                    <Link to="/administration/orders">Orders</Link>
 
                                     {/*<Link to="/login">Orders</Link>*/}
                                 </div>
@@ -74,11 +74,10 @@ const Sidebar: React.FC<SidebarProps> = ({children}) => {
                     {/*)}*/}
 
                     {/*{userRole === UserRole.ENJOYER && (*/}
-                        <Accordion parentClassName="mt-6" triggerContent={<span className={combine(css.subLinks,'text-xl')}>Development</span>}
+                        <Accordion parentClassName="mt-6" triggerContent={<span className={combine(css.subLinks,'text-xl')}>Management</span>}
                                    accordionContent={
                                        <div className="flex flex-col justify-center text-center gap-5 text-xl">
-                                           <Link to="/login">Channels</Link>
-                                           <Link to="/login">Orders</Link>
+                                           <Link to="/management/channels">Channels</Link>
                                        </div>
                                    }
                         />
