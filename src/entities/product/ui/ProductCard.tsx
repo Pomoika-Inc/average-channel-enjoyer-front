@@ -9,7 +9,7 @@ interface ProductCardProps {
     product: Product,
     showTag?: Boolean,
     actionContent?: ReactNode,
-    additionalContent?: Boolean
+    additionalContent?: ReactNode
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({
@@ -48,15 +48,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             }/>
 
             <div className="mt-3">
-                {additionalContent && (
-                    <div className="px-4">
-                        <p className="text-xl">Status:
-                            <span className={css[`product-status-${product.status}`]}>
-                                {product.status}
-                            </span></p>
-                        {product.rejectReason && <span>Reject reason: {product.rejectReason}</span>}
-                    </div>
-                )}
+                {additionalContent}
             </div>
         </div>
     );

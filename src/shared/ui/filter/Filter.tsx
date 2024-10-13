@@ -5,14 +5,14 @@ type Option = { name: string, value: string };
 interface FilterProps {
     filterOptions: Option[];
     listToFilter: any[];
-    propertyNameToFilterBy: string;
+    filterRule: (element: any, selectedOption: any) => boolean;
     onFilterChange: (filteredList: any[]) => void;
 }
 
 export const Filter: React.FC<FilterProps> = ({
           filterOptions,
           listToFilter,
-          propertyNameToFilterBy,
+          filterRule,
           onFilterChange
       }) => {
 
@@ -27,12 +27,11 @@ export const Filter: React.FC<FilterProps> = ({
             onFilterChange(listToFilter);
             return;
         }
-
         const newFilteredList = listToFilter.filter(element => {
-            return typeof element[propertyNameToFilterBy] === 'string' && element[propertyNameToFilterBy] === selectedOption;
+            return filterRule(element, selectedOption) //element[propertyNameToFilterBy] === selectedOption;
         });
         onFilterChange(newFilteredList);
-    }, [selectedOption, listToFilter, propertyNameToFilterBy, onFilterChange]);
+    }, [selectedOption]);
 
     return (
         <div className="filter-dropdown">

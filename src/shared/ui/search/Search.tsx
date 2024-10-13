@@ -41,7 +41,7 @@ export const Search: React.FC<SearchProps> = ({ listToSearchIn, propertyNameToSe
             <input value={searchString}
                 onChange={(event) => searchingHandler(event.target.value)}
                 placeholder="Search..."
-                   className="max-w-24"
+                   className="w-full"
             />
         </div>
     );
