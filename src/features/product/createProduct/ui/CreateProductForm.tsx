@@ -133,11 +133,10 @@ export const ProductForm: React.FC<ProductFormProp> = ({
                 <button type="submit" className={`${styles.button} bg-indigo-600`}>
                     Create
                 </button>
-                <button onClick={() => clearForm()} className={`${styles.button} bg-red-500`}>
+                <button type="button" onClick={() => clearForm()} className={`${styles.button} bg-red-500`}>
                     Clear the form
                 </button>
             </div>
-
         </form>
     );
 }
