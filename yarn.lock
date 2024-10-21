@@ -1069,9 +1069,9 @@
     jssha "3.2.0"
     tweetnacl "1.0.3"
 
-"@ton/ton@^13.11.2":
-  version "13.11.2"
-  resolved "https://registry.npmjs.org/@ton/ton/-/ton-13.11.2.tgz"
+"@ton/ton@^15.0.0":
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/@ton/ton/-/ton-15.0.0.tgz#03aab727d082db877ec6012f3b1b3fb6aa564b40"
   dependencies:
     axios "^1.6.7"
     dataloader "^2.0.0"
