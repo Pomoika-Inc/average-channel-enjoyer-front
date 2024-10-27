@@ -41,7 +41,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                     {actionContent}
                 </div>
             </div>
-            <Accordion triggerContent={<span>Read more?</span>} accordionContent={
+            <Accordion isWithArrow arrowColor="purple" triggerContent={<span>Read more?</span>} accordionContent={
                 <p>
                     {product.description}
                 </p>

@@ -10,12 +10,12 @@ export function ChannelListPage() {
         {
             id: 678767,
             title: "Channel my",
-            image: "/images/productAva1.png",
+            image: "./images/productAva1.png",
         },
         {
             id: 876545,
             title: "Channel poka",
-            image: "/images/productAva1.png",
+            image: "./images/productAva1.png",
         }
     ]
 
