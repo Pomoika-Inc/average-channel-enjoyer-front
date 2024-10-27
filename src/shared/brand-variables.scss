@@ -1,5 +1,8 @@
 $brand-color-gold-yellow: #F9C646;
 $brand-color-sky-blue: #0261CB;
+$brand-color-white: white;
+$brand-color-purple: #6550B9FF;
+
 
 $brand-color-success: forestgreen;
 $brand-color-pending: yellow;
@@ -11,4 +14,20 @@ $brand-color-fail: indianred;
 
 .bg-gold-yellow{
   background-color: $brand-color-gold-yellow;
+}
+
+.color-white{
+  color: $brand-color-white;
+}
+
+.color-purple{
+  color: $brand-color-purple;
+}
+
+.bg-white{
+  color: $brand-color-white;
+}
+
+.bg-purple{
+  color: $brand-color-purple;
 }
