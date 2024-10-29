@@ -9,7 +9,7 @@ interface ProductCardProps {
     product: Product,
     showTag?: Boolean,
     actionContent?: ReactNode,
-    additionalContent?: Boolean
+    additionalContent?: ReactNode
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({
@@ -41,19 +41,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                     {actionContent}
                 </div>
             </div>
-            <Accordion triggerContent={<span>Read more?</span>} accordionContent={
+            <Accordion isWithArrow arrowColor="purple" triggerContent={<span>Read more?</span>} accordionContent={
                 <p>
                     {product.description}
                 </p>
             }/>
 
             <div className="mt-3">
-                {additionalContent && (
-                    <div className="px-4">
-                        <p className="text-xl">Status: <span className="text-green-600">{product.status}</span></p>
-                        {product.rejectReason && <span>Reject reason: {product.rejectReason}</span>}
-                    </div>
-                )}
+                {additionalContent}
             </div>
         </div>
     );

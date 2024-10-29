@@ -8,7 +8,7 @@ interface CoinWithCounterProps {
 
 export const Tag: React.FC<CoinWithCounterProps> = ({children, className}) => {
     return (
-        <div className={combine(className, 'bg-red-500 text-center text-xs rounded-lg hover:bg-blue-600')} >
+        <div className={combine(className, 'bg-red-500 text-center text-xs rounded-lg')} >
             {children}
         </div>
     );
