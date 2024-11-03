@@ -3,21 +3,12 @@ import Layout from "@/shared/ui/layouts/Layout";
 import {HeaderContent} from "./HeaderContent";
 import {ChannelCard} from "@/entities/channel";
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {RootState} from "@/app/appStore";
 
 export function ChannelListPage() {
 
-    const channels = [
-        {
-            id: 678767,
-            title: "Channel my",
-            image: "./images/productAva1.png",
-        },
-        {
-            id: 876545,
-            title: "Channel poka",
-            image: "./images/productAva1.png",
-        }
-    ]
+    const channels = useSelector((state: RootState) => state.channel.channels)
 
     return (
         <>

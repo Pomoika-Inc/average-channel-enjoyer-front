@@ -6,7 +6,7 @@ interface ChannelSliceState {
     isLoadingChannelDetails: boolean
     errorChannelDetails: string | null
 
-    channels: []
+    channels: Channel[]
     isLoadingChannels: boolean
     errorChannels: string | null
 }
@@ -16,7 +16,18 @@ const initialState: ChannelSliceState = {
     isLoadingChannelDetails: false,
     errorChannelDetails: null,
 
-    channels: [],
+    channels: [
+        {
+            id: 678767,
+            title: "Channel my",
+            image: "./images/productAva1.png",
+        },
+        {
+            id: 876545,
+            title: "Channel poka",
+            image: "./images/productAva1.png",
+        }
+    ],
     isLoadingChannels: false,
     errorChannels: null
 };
