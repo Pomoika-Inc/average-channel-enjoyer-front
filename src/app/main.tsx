@@ -6,9 +6,11 @@ import "../index.css";
 import {appRouter} from "./appRouter";
 import {store} from './appStore';
 import {Provider} from 'react-redux';
+import './../index.css';
+import './../shared/global.scss'
+import {ThemeProvider} from "@/entities/theme";
 
 const manifestUrl = "https://Pomoika-Inc.github.io/average-channel-enjoyer-front/tonconnect-manifest.json";
-import './../index.css';
 
 
 const queryClient = new QueryClient({
@@ -19,7 +21,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <TonConnectUIProvider manifestUrl={manifestUrl}>
         <QueryClientProvider client={queryClient}>
             <Provider store={store}>
-                <RouterProvider router={appRouter}/>
+                <ThemeProvider>
+                    <RouterProvider router={appRouter}/>
+                </ThemeProvider>
             </Provider>
         </QueryClientProvider>
     </TonConnectUIProvider>
