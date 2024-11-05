@@ -25,7 +25,7 @@ export function ChannelPage() {
             />
 
             <div className="flex flex-col items-center">
-                <ul className="flex flex-col w-full p-3 gap-2">
+                <ul className="flex flex-col w-full p-3 gap-5">
                     {searchedProducts.map((product) => (
                         <li key={product.id}>
                             <ProductCard product={product} showTag actionContent={

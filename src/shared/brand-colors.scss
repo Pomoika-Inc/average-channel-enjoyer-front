@@ -2,11 +2,24 @@ $brand-color-gold-yellow: #F9C646;
 $brand-color-sky-blue: #0261CB;
 $brand-color-white: white;
 $brand-color-purple: #6550B9FF;
-
-
 $brand-color-success: forestgreen;
 $brand-color-pending: yellow;
 $brand-color-fail: indianred;
+
+:root {
+  --brand-color-gold-yellow: #F9C646;
+  --brand-color-sky-blue: #0261CB;
+  --brand-color-pure-white: #FFFFFF;
+  --brand-color-purple: #6550B9FF;
+  --brand-color-night: #1b1a1a;
+  --brand-color-gray: #404040;
+  --brand-color-retro-white: #e7e9da;
+
+  --brand-color-success: forestgreen;
+  --brand-color-pending: yellow;
+  --brand-color-fail: indianred;
+}
+
 
 .bg-sky-blue{
   background-color: $brand-color-sky-blue;

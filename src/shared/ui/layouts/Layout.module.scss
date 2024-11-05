@@ -1,4 +1,19 @@
-@import '@/shared/brand-variables.scss';
+@use '@/shared/brand-colors' as *;
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: var(--header-background-color);
+    height: 4rem;
+}
+
+[data-theme='light'] {
+    --header-background-color: var(--brand-color-sky-blue);
+}
+
+[data-theme='dark'] {
+    --header-background-color: var(--brand-color-night);
+}
 
 .dialogOverlay {
     position: fixed;
@@ -7,27 +22,33 @@
     animation: overlayShow 250ms ease-out;
 }
 
-.sidebarContent{
-
-}
 
 .subLinks {
     color: #bed6f6;
 }
 
-.dialogContent {
+.sidebar {
     position: fixed;
     top: 0;
     left: 0;
     width: 300px;
     height: 100%;
-    background: $brand-color-sky-blue;
+    background: var(--sidebar-background-color);
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     padding: 20px;
     animation: contentShow 200ms ease-out; /* Анимация выезда */
 }
+
+[data-theme='light'] {
+    --sidebar-background-color: var(--brand-color-sky-blue);
+}
+
+[data-theme='dark'] {
+    --sidebar-background-color: var(--brand-color-night);
+}
+
 
 .closing {
     animation: contentHide 150ms ease-in forwards; /* Анимация закрытия */

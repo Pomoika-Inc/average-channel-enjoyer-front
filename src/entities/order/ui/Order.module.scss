@@ -1,0 +1,12 @@
+
+.orderCard{
+  background-color: var(--order-card-background-color);
+}
+
+[data-theme='light'] {
+  --order-card-background-color: var(--brand-color-pure-white);
+}
+
+[data-theme='dark'] {
+  --order-card-background-color: #7b8eb3;
+}

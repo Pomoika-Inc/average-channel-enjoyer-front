@@ -1,5 +1,7 @@
 import React, {ReactNode} from 'react';
 import {Order} from "@/entities/order/model/orderTypes";
+import combine from "classnames";
+import css from "./Order.module.scss"
 
 interface OrderCardProps {
     order: Order,
@@ -23,7 +25,7 @@ export const OrderCard: React.FC<OrderCardProps> = ({order, actionContent, produ
 
 
     return (
-        <div className="gap-4 items-center border rounded-lg shadow-lg py-4 px-2">
+        <div className={combine(css.orderCard, "gap-4 items-center border rounded-lg shadow-lg py-4 px-2")}>
             <div className="grid grid-cols-12 ">
 
                 <div className="col-span-12 flex flex-col justify-center h-full px-3">

@@ -1,5 +1,5 @@
 import React, {ReactNode} from 'react';
-import css from './Header.module.scss'
+import css from './Layout.module.scss'
 import Sidebar from "@/shared/ui/layouts/Sidebar";
 import combine from "classnames";
 

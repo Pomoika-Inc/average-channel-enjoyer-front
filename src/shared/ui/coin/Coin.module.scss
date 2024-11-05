@@ -1,4 +1,4 @@
-@import '@/shared/brand-variables';
+@use '@/shared/brand-colors' as *;
 
 .counter {
   color: $brand-color-gold-yellow;

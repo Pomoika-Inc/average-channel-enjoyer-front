@@ -1,6 +1,6 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import React, {ReactNode, useState} from 'react';
-import css from "./Sidebar.module.scss";
+import css from "./Layout.module.scss";
 import SidebarIcon from "@/shared/ui/icons/SidebarIcon";
 import {UserRole} from "@/entities/user/model/userTypes";
 import {Link} from "react-router-dom";
@@ -46,7 +46,7 @@ const Sidebar: React.FC<SidebarProps> = ({children}) => {
             <Dialog.Overlay className={css.dialogOverlay}/>
 
             {isOpen && (
-                <Dialog.Content className={`${css.dialogContent} ${isClosing ? css.closing : ''}`}>
+                <Dialog.Content className={`${css.sidebar} ${isClosing ? css.closing : ''}`}>
                     <div className="flex flex-col align-items-center">
                         <Dialog.Title></Dialog.Title>
                         <div className="flex justify-between">
