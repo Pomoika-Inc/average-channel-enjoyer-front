@@ -1,4 +1,4 @@
-@import '@/shared/brand-colors';
+@use '@/shared/brand-colors' as *;
 
 .header {
     display: flex;

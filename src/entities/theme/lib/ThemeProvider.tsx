@@ -15,7 +15,7 @@ export function ThemeProvider({ children, theme }: Props) {
     const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
     //@ts-ignore
-    const tgTheme = isLocalhost ? 'dark' : window.Telegram?.WebApp?.colorScheme === 'dark' ? 'dark' : 'light';
+    const tgTheme = isLocalhost ? 'light' : window.Telegram?.WebApp?.colorScheme === 'dark' ? 'dark' : 'light';
     useEffect(() => {
         const newTheme = theme || tgTheme
 

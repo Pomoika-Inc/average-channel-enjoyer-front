@@ -1,4 +1,4 @@
-@import '@/shared/brand-colors';
+@use '@/shared/brand-colors' as *;
 
 .productCard{
   background-color: var(--product-card-background-color);

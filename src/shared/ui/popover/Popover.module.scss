@@ -1,4 +1,4 @@
-@import '@/shared/brand-colors';
+@use '@/shared/brand-colors' as *;
 
 .Content {
     border-radius: 4px;
