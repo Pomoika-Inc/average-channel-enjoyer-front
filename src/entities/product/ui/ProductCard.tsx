@@ -4,6 +4,7 @@ import {Product} from "@/entities/product/model/productTypes";
 import {Tag} from "@/shared/ui/tags/Tag";
 import CoinWithCounter from "@/shared/ui/coin/CoinWithCounter";
 import Accordion from "@/shared/ui/accordions/Accordion";
+import combine from "classnames";
 
 interface ProductCardProps {
     product: Product,
@@ -19,7 +20,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         showTag = false
     }) => {
     return (
-        <div className="gap-4 items-center border rounded-lg shadow-lg py-3 px-2">
+        <div className={combine(css.productCard, "gap-4 items-center border rounded-lg shadow-lg py-3 px-2")}>
             <div className="grid grid-cols-12 ">
                 <div className="col-span-3 flex items-center">
                     <img src={product.image} alt="image"/>

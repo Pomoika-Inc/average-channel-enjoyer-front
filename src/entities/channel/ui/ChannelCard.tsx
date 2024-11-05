@@ -1,6 +1,8 @@
 import React, {ReactNode} from 'react';
 import {Tag} from "@/shared/ui/tags/Tag";
 import {Channel} from "@/entities/channel/model/channelTypes";
+import combine from "classnames";
+import css from './Channel.module.scss'
 
 interface ChannelCardProps {
     channel: Channel,
@@ -9,7 +11,7 @@ interface ChannelCardProps {
 
 export const ChannelCard: React.FC<ChannelCardProps> = ({channel, actionSlot}) => {
     return (
-        <div className="gap-4 items-center border rounded-lg shadow-lg py-3 px-2">
+        <div className={combine( css.channelCard ,"gap-4 items-center border rounded-lg shadow-lg py-3 px-2")}>
             <div className="grid grid-cols-12 ">
                 <div className="col-span-3 flex items-center">
                     <img src={channel.image} alt="image"/>

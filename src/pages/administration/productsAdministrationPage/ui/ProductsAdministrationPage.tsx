@@ -127,7 +127,7 @@ export function ProductsAdministrationPage() {
                         />
                 </div>
 
-                <ul className="flex flex-col w-full p-3 gap-2 mt-3">
+                <ul className="flex flex-col w-full p-3 gap-5 mt-3">
                     {searchedProducts.map((product) => (
                         <li key={product.id}>
                             <ProductCard product={product} actionContent={
