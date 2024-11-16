@@ -10,6 +10,7 @@ interface AccordionProp {
     parentClassName?: string;
     isOpen?: boolean;
     isWithArrow?: boolean;
+    arrowColor?: "white" | "purple"
     onToggle?: (isOpen: boolean) => void
 }
 
@@ -19,6 +20,7 @@ const Accordion: React.FC<AccordionProp> = ({
         parentClassName,
         isOpen = false,
         isWithArrow = true,
+        arrowColor = "white",
         onToggle
     }) => {
 
@@ -46,7 +48,7 @@ const Accordion: React.FC<AccordionProp> = ({
             onValueChange={handleValueChange}
         >
             <AccordionComponent.Item className={styles.Item} value="item-1">
-                <AccordionTrigger isWithArrow={isWithArrow}>{triggerContent}</AccordionTrigger>
+                <AccordionTrigger isWithArrow={isWithArrow} arrowColor={arrowColor}>{triggerContent}</AccordionTrigger>
                 <AccordionContent>{accordionContent}</AccordionContent>
             </AccordionComponent.Item>
         </AccordionComponent.Root>
@@ -54,17 +56,18 @@ const Accordion: React.FC<AccordionProp> = ({
 };
 
 interface AccordionTriggerProp extends React.ComponentPropsWithoutRef<typeof AccordionComponent.Trigger> {
-    isWithArrow?: boolean;
+    isWithArrow?: boolean
+    arrowColor?: string
 }
 
 const AccordionTrigger = React.forwardRef<
     HTMLButtonElement,
     AccordionTriggerProp
->(({ children, className, isWithArrow = true, ...props }, forwardedRef) => (
-    <AccordionComponent.Header className={styles.Header}>
+>(({ children, className, isWithArrow = true, arrowColor = "white", ...props }, forwardedRef) => (
+    <AccordionComponent.Header className={combine(styles.Header)}>
         <AccordionComponent.Trigger className={combine(styles.Trigger, className)} {...props} ref={forwardedRef}>
             {children}
-            {isWithArrow && <ChevronDownIcon className={styles.Chevron} aria-hidden />}
+            {isWithArrow && <ChevronDownIcon color={arrowColor} className={combine(styles.Chevron)} aria-hidden />}
         </AccordionComponent.Trigger>
     </AccordionComponent.Header>
 ));

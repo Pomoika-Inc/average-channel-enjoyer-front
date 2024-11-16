@@ -7,8 +7,8 @@ export interface Product {
     description?: string,
     image: string | undefined,
     status?: string,//ProductStatus,
-    rejectReason?: string | null
+    rejectReason: string | null
 }
 
-type ProductStatus = "active" | "waiting_for_approval" | "rejected"
+export type ProductStatus = "active" | "waiting_for_approval" | "rejected"
 export type ProductActionType = "creating" | "updating"

@@ -55,34 +55,39 @@ const Sidebar: React.FC<SidebarProps> = ({children}) => {
                         </div>
                         <div className="flex flex-col justify-center text-center gap-5 mt-24 text-xl">
                             <Link to="/channels">Channels</Link>
-                            {/*<Link to="/login">Orders</Link>*/}
+                            <Link to="/orders">Orders</Link>
                         </div>
                     </div>
 
 
                     {/*{userRole === UserRole.ADMIN && (*/}
-                        <Accordion parentClassName="mt-6" triggerContent={<span className={combine(css.subLinks,'text-xl')}>Administration</span>}
-                            accordionContent={
-                                <div className="flex flex-col justify-center text-center gap-5 text-xl">
-                                    <Link to="/administration/products">Products</Link>
-                                    <Link to="/administration/products/create">Create product</Link>
+                    <Accordion parentClassName="mt-6" isWithArrow
+                               triggerContent={<span className={combine(css.subLinks, 'text-xl')}>Administration</span>}
+                               accordionContent={
+                                   <div className="flex flex-col justify-center text-center gap-5 text-xl">
+                                       <Link to="/administration/products">Products</Link>
+                                       <Link to="/administration/orders">Orders</Link>
 
-                                    {/*<Link to="/login">Orders</Link>*/}
-                                </div>
-                            }
-                        />
+                                       {/*<Link to="/login">Orders</Link>*/}
+                                   </div>
+                               }
+                    />
                     {/*)}*/}
 
                     {/*{userRole === UserRole.ENJOYER && (*/}
-                        <Accordion parentClassName="mt-6" triggerContent={<span className={combine(css.subLinks,'text-xl')}>Development</span>}
-                                   accordionContent={
-                                       <div className="flex flex-col justify-center text-center gap-5 text-xl">
-                                           <Link to="/login">Channels</Link>
-                                           <Link to="/login">Orders</Link>
-                                       </div>
-                                   }
-                        />
+                    <Accordion parentClassName="mt-6"
+                               triggerContent={<span className={combine(css.subLinks, 'text-xl')}>Management</span>}
+                               accordionContent={
+                                   <div className="flex flex-col justify-center text-center gap-5 text-xl">
+                                       <Link to="/management/channels">Channels</Link>
+                                   </div>
+                               }
+                    />
                     {/*)}*/}
+
+                    <div className="flex flex-col w-full text-center gap-3 mt-5 text-xl">
+                        <Link to="/fqa">FAQ</Link>
+                    </div>
 
                 </Dialog.Content>
             )}

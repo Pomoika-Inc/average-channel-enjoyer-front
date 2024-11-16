@@ -1,5 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {Product} from "./productTypes";
+import {fetchProductDetails, fetchProducts} from "../api/actions";
 
 interface ProductSliceState {
     productDetails: Product | null
@@ -24,7 +25,7 @@ const initialState: ProductSliceState = {
             price: 23,
             qty: 1,
             description: "This is the best product you have even seen",
-            image: "/images/channelAva1.png",
+            image: "./images/channelAva1.png",
             status: "active",
             rejectReason: null
         },
@@ -35,14 +36,25 @@ const initialState: ProductSliceState = {
             price: 23,
             qty: 3,
             description: "This is the best product you have even seen",
-            image: "/images/channelAva1.png",
+            image: "./images/channelAva1.png",
             status: "active",
+            rejectReason: null
+        },
+        {
+            id: 53453,
+            groupId: 75567,
+            title: "Product 3",
+            price: 23,
+            qty: 3,
+            description: "This is the best product you have even seen",
+            image: "/images/channelAva1.png",
+            status: "waiting_for_approval",
             rejectReason: null
         },
         {
             id: 53434,
             groupId: 67829,
-            title: "Product 3",
+            title: "Product 4",
             price: 23,
             qty: 6,
             description: "This is the best product you have even seen",
@@ -59,6 +71,14 @@ export const productSlice = createSlice({
     name: 'product',
     initialState,
     reducers: {
+        updateProduct(state, action: PayloadAction<Product>){
+            state.products = state.products.map(product => {
+                return action.payload.id === product.id ? action.payload : product
+            })
+        },
+        removeProduct(state, action) {
+            state.products = state.products.filter(product => product.id !== action.payload)
+        },
         setProducts(state, action: PayloadAction<Product>) {
             state.productDetails = action.payload
         },
@@ -71,8 +91,35 @@ export const productSlice = createSlice({
         clearProductDetails(state) {
             state.productDetails = null
         },
+    },
+
+    extraReducers: (builder) => {
+
+        builder.addCase(fetchProducts.pending, (state) => {
+            state.isLoadingProducts = true;
+        });
+        builder.addCase(fetchProducts.fulfilled, (state, action: PayloadAction<Product[]>) => {
+            state.isLoadingProducts = false;
+            state.products = action.payload;
+        });
+        builder.addCase(fetchProducts.rejected, (state, action) => {
+            state.isLoadingProducts = false;
+            state.errorProducts = action.error.message || 'Ошибка загрузки продуктов';
+        });
+
+        builder.addCase(fetchProductDetails.pending, (state) => {
+            state.isLoadingProductDetails = true;
+        });
+        builder.addCase(fetchProductDetails.fulfilled, (state, action: PayloadAction<Product>) => {
+            state.isLoadingProductDetails = false;
+            state.productDetails = action.payload;
+        });
+        builder.addCase(fetchProductDetails.rejected, (state, action) => {
+            state.isLoadingProductDetails = false;
+            state.errorProductDetails = action.error.message || 'Ошибка загрузки деталей продукта';
+        });
     }
 });
 
-export const {setProductDetails, clearProductDetails} = productSlice.actions;
+export const {updateProduct, setProductDetails, clearProductDetails, removeProduct} = productSlice.actions;
 export default productSlice.reducer;
