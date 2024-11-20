@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { debounce } from "@/shared/lib/debounce";
 
-interface SearchProps {
+export interface SearchProps {
     listToSearchIn: any[],
     propertyNameToSearchBy: string,
     onSearchedChange: Function,
@@ -21,7 +21,7 @@ export const Search: React.FC<SearchProps> = ({ listToSearchIn, propertyNameToSe
         onSearchedChange(searchedInList);
     };
 
-    const debouncedSearch = useCallback(debounce(handleSearch, 300), [listToSearchIn]);
+    const debouncedSearch = useCallback(debounce(handleSearch, 100), [listToSearchIn]);
 
     useEffect(() => {
         if (searchString === '') {

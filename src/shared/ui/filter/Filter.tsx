@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 type Option = { name: string, value: string };
 
-interface FilterProps {
+export interface FilterProps {
     filterOptions: Option[];
     listToFilter: any[];
     filterRule: (element: any, selectedOption: any) => boolean;

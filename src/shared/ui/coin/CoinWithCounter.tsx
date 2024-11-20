@@ -2,7 +2,7 @@ import React from 'react';
 import css from "./Coin.module.scss";
 import CoinIcon from "@/shared/ui/icons/CoinIcon";
 
-interface CoinWithCounterProps {
+export interface CoinWithCounterProps {
     counter: number
 }
 

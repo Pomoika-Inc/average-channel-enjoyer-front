@@ -1,8 +1,10 @@
-import { JettonMaster, Mint } from "../wrappers/JettonMaster";
+import { JettonMaster, Mint } from "@/app/wrappers/JettonMaster";
 import { useAsyncInitialize } from "./useAsyncInitialize";
 import { useTonClient } from "./useTonClient";
 import { useTonConnect } from "./useTonConnect";
-import { JettonWallet } from "../wrappers/JettonWallet";
+//import { JettonWallet } from "@/app/wrappers/JettonWallet";
+import { AceWallet } from "@/app/wrappers/AceWallet";
+
 import { Address, fromNano, OpenedContract, toNano } from "@ton/core";
 import { useEffect, useState } from "react";
 
@@ -26,7 +28,7 @@ export function useJettonContract() {
 
         const address = await jettonContract.getWalletAddress(Address.parse(wallet))
 
-        return client.open(JettonWallet.fromAddress(address)) as OpenedContract<JettonWallet>
+        return client.open(AceWallet.fromAddress(address)) as OpenedContract<AceWallet>
     }, [jettonContract])
 
     useEffect(() => {
@@ -34,7 +36,8 @@ export function useJettonContract() {
             if (!jettonWalletContract) return
             
             setBalance(null)
-            const balance = (await jettonWalletContract.getWalletData()).balance
+            const balance = (await jettonWalletContract.getBalance())
+            console.log("balance", balance)
             setBalance(fromNano(balance))
 
             await sleep(5000)
