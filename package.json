@@ -23,7 +23,7 @@
     "@radix-ui/themes": "^3.1.4",
     "@reduxjs/toolkit": "^2.2.7",
     "@tanstack/react-query": "^5.59.15",
-    "@ton/core": "^0.56.3",
+    "@ton/core": "^0.59.0",
     "@ton/crypto": "^3.2.0",
     "@ton/ton": "^15.0.0",
     "@tonconnect/ui-react": "^2.0.6",
